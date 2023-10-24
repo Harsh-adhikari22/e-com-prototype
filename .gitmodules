@@ -1,0 +1,3 @@
+[submodule "src/ecommerce-products-data"]
+	path = src/ecommerce-products-data
+	url = https://github.com/codewithzosh/ecommerce-products-data.git
