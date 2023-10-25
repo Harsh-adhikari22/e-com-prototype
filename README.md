@@ -8,14 +8,17 @@ After cloning this repository, migrate to e-com-prototype folder. Then, follow t
 Download any java editor Intellij or Eclipse.
 Download Maeven(dependency manager).
 
-Client Side
-  '''cd react
+Client Side:
+
+  '''
+  cd react
   npm install
   npm run dev (for continuous development)
   OR
-  npm start (to run script 1 time)'''
+  npm start (to run script 1 time)
+  '''
 
- Server Side
+ Server Side:
   run using the button there in the IDE.
 
 Tech Used
