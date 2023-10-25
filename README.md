@@ -8,7 +8,7 @@ After cloning this repository, migrate to e-com-prototype folder. Then, follow t
 Download any java editor Intellij or Eclipse.
 Download Maeven(dependency manager).
 
-Client Side:
+### Client Side:
 
   ```
   cd react
@@ -18,10 +18,10 @@ Client Side:
   npm start (to run script 1 time)
   ```
 
- Server Side:
+ ### Server Side: 
   run using the button there in the IDE.
 
-Tech Used
+### Tech Used:
 Server: Springboot, MySql
 Client: React.js
 
