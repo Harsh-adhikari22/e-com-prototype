@@ -21,7 +21,7 @@ Download Maeven(dependency manager).
  ### Server Side: 
   run using the button there in the IDE.
 
-### Tech Used:
+### Techstack Used:
 Server: Springboot, MySql
 Client: React.js
 
