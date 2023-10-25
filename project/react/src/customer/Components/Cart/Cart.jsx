@@ -11,6 +11,15 @@ const Cart = () => {
   const navigate = useNavigate();
   const jwt = localStorage.getItem("jwt");
   const {cart}=useSelector(store=>store);
+  const total = cart.cartItems.reduce((accumulator, currentItem) => {
+    return accumulator + currentItem.price;
+  }, 0);
+  const quantity = cart.cartItems.reduce((accumulator, currentItem) => {
+    return accumulator + currentItem.quantity;
+  }, 0);
+  const discount = cart.cartItems.reduce((accumulator, currentItem) => {
+    return accumulator + currentItem.discountedPrice;
+  }, 0);
   console.log("cart ",cart)
 
   useEffect(() => {
@@ -35,12 +44,12 @@ const Cart = () => {
 
           <div className="space-y-3 font-semibold">
             <div className="flex justify-between pt-3 text-black ">
-              <span>Price ({cart.cart?.totalItem} item)</span>
-              <span>₹{cart.cart.totalPrice}</span>
+              <span>Price ({quantity} item)</span>
+              <span>₹{total}</span>
             </div>
             <div className="flex justify-between">
               <span>Discount</span>
-              <span className="text-green-700">-₹{cart.cart?.discounte}</span>
+              <span className="text-green-700">-₹{total-discount}</span>
             </div>
             <div className="flex justify-between">
               <span>Delivery Charges</span>
@@ -49,7 +58,7 @@ const Cart = () => {
             <hr />
             <div className="flex justify-between font-bold text-lg">
               <span>Total Amount</span>
-              <span className="text-green-700">₹{cart.cart?.totalDiscountedPrice}</span>
+              <span className="text-green-700">₹{discount}</span>
             </div>
           </div>
 
