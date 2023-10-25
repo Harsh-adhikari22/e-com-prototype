@@ -23,22 +23,6 @@ const PaymentSuccess = () => {
   const dispatch = useDispatch();
   const { order } = useSelector((store) => store);
 
-  useEffect(() => {
-    console.log("orderId",orderId)
-    const urlParams = new URLSearchParams(window.location.search);
-    setPaymentId(urlParams.get("razorpay_payment_id"));
-    setReferenceId(urlParams.get("razorpay_payment_link_reference_id"));
-    setPaymentStatus(urlParams.get("razorpay_payment_link_status"));
-  }, []);
-
-  useEffect(() => {
-    if (paymentId && paymentStatus === "paid") {
-      const data = { orderId, paymentId, jwt };
-      dispatch(updatePayment(data));
-      dispatch(getOrderById(orderId));
-    }
-  }, [orderId, paymentId]);
-
   return (
     <div className="px-2 lg:px-36">
       <div className="flex flex-col justify-center items-center">

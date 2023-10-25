@@ -1,6 +1,6 @@
 import React from "react";
 import { Badge, Button } from "@mui/material";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import CartItem from "../Cart/CartItem";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,11 +23,6 @@ useEffect(()=>{
   
   dispatch(getOrderById(orderId))
 },[orderId])
-
-const handleCreatePayment=()=>{
-  const data={orderId:order.order?.id,jwt}
-  dispatch(createPayment(data))
-}
   
 
   return (
@@ -71,7 +66,7 @@ const handleCreatePayment=()=>{
             </div>
 
             <Button
-              onClick={handleCreatePayment}
+              onClick={() => navigate("/payment/${orderId}")}
               variant="contained"
               type="submit"
               sx={{ padding: ".8rem 2rem", marginTop: "2rem", width: "100%" }}
