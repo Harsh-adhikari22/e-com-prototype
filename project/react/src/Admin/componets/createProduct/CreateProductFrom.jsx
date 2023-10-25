@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Typography } from "@mui/material";
+import { Checkbox, Typography } from "@mui/material";
 import {
   Grid,
   TextField,
@@ -15,7 +15,6 @@ import "./CreateProductForm.css";
 import { useDispatch } from "react-redux";
 import { createProduct } from "../../../Redux/Customers/Product/Action";
 
-
 const initialSizes = [
   { name: "S", quantity: 0 },
   { name: "M", quantity: 0 },
@@ -23,7 +22,6 @@ const initialSizes = [
 ];
 
 const CreateProductForm = () => {
-  
   const [productData, setProductData] = useState({
     imageUrl: "",
     brand: "",
@@ -38,9 +36,15 @@ const CreateProductForm = () => {
     secondLavelCategory: "",
     thirdLavelCategory: "",
     description: "",
+    carbon_footprint: "",
+    energy_efficiency: "",
+    green_marker: false,
+    recyclability: "",
+    sustainability_score: "",
+    water_footprint: "",
   });
-const dispatch=useDispatch();
-const jwt=localStorage.getItem("jwt")
+  const dispatch = useDispatch();
+  const jwt = localStorage.getItem("jwt");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -52,7 +56,7 @@ const jwt=localStorage.getItem("jwt")
 
   const handleSizeChange = (e, index) => {
     let { name, value } = e.target;
-    name==="size_quantity"?name="quantity":name=e.target.name;
+    name === "size_quantity" ? (name = "quantity") : (name = e.target.name);
 
     const sizes = [...productData.size];
     sizes[index][name] = value;
@@ -82,7 +86,7 @@ const jwt=localStorage.getItem("jwt")
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createProduct({data:productData,jwt}))
+    dispatch(createProduct({ data: productData, jwt }));
     console.log(productData);
   };
 
@@ -128,7 +132,7 @@ const jwt=localStorage.getItem("jwt")
               onChange={handleChange}
             />
           </Grid>
-        
+
           <Grid item xs={12} sm={6}>
             <TextField
               fullWidth
@@ -177,7 +181,7 @@ const jwt=localStorage.getItem("jwt")
               type="number"
             />
           </Grid>
-          
+
           <Grid item xs={12} sm={4}>
             <TextField
               fullWidth
@@ -248,7 +252,7 @@ const jwt=localStorage.getItem("jwt")
             />
           </Grid>
           {productData.size.map((size, index) => (
-            <Grid container item spacing={3} >
+            <Grid container item spacing={3}>
               <Grid item xs={12} sm={6}>
                 <TextField
                   label="Size Name"
@@ -268,10 +272,69 @@ const jwt=localStorage.getItem("jwt")
                   required
                   fullWidth
                 />
-              </Grid> </Grid>
-            
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  label="Carbon Footprint"
+                  name="Carbon Footprint"
+                  type="number"
+                  onChange={(event) => handleSizeChange(event, index)}
+                  required
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  label="Sustainability_score"
+                  name="Sustainability_score"
+                  type="number"
+                  onChange={(event) => handleSizeChange(event, index)}
+                  required
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  label="recyclability"
+                  name="recyclability"
+                  type="number"
+                  onChange={(event) => handleSizeChange(event, index)}
+                  required
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  label="Energy_efficiency"
+                  name="Energy_efficiency"
+                  type="number"
+                  onChange={(event) => handleSizeChange(event, index)}
+                  required
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  label="Water_footprint"
+                  name="Water_footprint"
+                  type="number"
+                  onChange={(event) => handleSizeChange(event, index)}
+                  required
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <Checkbox
+                  label="green_mark"
+                  name="green_mark"
+                  type="boolean"
+                  required
+                  fullWidth
+                />
+              </Grid>
+            </Grid>
           ))}
-          <Grid item xs={12} >
+          <Grid item xs={12}>
             <Button
               variant="contained"
               sx={{ p: 1.8 }}

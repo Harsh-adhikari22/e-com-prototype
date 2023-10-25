@@ -11,19 +11,24 @@ function Navbar() {
   return (
     <Fragment>
       {/* Navigation bar */}
-      <nav className="bg-blue-700 text-white border-b border-gray-200 lg:px-20 px-2">
+      <nav
+        className="bg-blue-700 text-white border-b border-gray-200 lg:px-20 px-2"
+        style={{
+          backgroundColor: "#000000",
+          fontSize: "24px",
+          color: "#ffffff",
+        }}
+      >
         <div className="mx-auto px-4">
           <div className="flex justify-between items-center">
             {/* Logo */}
             <Link to="/" className="flex items-center py-6">
               <img
                 src="https://res.cloudinary.com/ddkso1wxi/image/upload/v1675919455/Logo/Copy_of_Zosh_Academy_nblljp.png"
-                alt="Shopwithzosh"
+                alt="cloned"
                 className="h-8 w-8 mr-2"
               />
-              <span className="font-bold text-white text-lg">
-                Shop With Zosh
-              </span>
+              <span className="font-bold text-white text-lg">cloned</span>
             </Link>
 
             {/* Navigation menu */}

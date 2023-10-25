@@ -3,12 +3,13 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { homeCarouselData } from "./HomeCaroselData";
 import { useNavigate } from "react-router-dom";
+import { GreenHomeCarouselData } from "./GreenHomeCarouselData";
 
 const handleDragStart = (e) => e.preventDefault();
 
 const HomeCarousel = () => {
   const navigate = useNavigate();
-  const item = homeCarouselData.map((item) => (
+  const item = GreenHomeCarouselData.map((item) => (
     <img
       className="cursor-pointer"
       onClick={() => navigate(item.path)}

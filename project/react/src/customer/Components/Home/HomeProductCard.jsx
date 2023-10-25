@@ -23,6 +23,9 @@ const HomeProductCard = ({ product }) => {
           {product?.brand || product?.title}
         </h3>
         <p className="mt-2 text-sm text-gray-500">{product?.title}</p>
+        <p className="mt-2 text-sm" style={{ color: "#00aa00" }}>
+          {product?.sustainability_score}
+        </p>
       </div>
     </div>
   );
